@@ -1,1 +1,1 @@
-# ratingComponent"
+# ratingComponent
