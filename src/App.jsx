@@ -1,13 +1,25 @@
-import { useState } from 'react'
-import './App.css'
+import "./App.css";
+import Card from "./Card";
+import Thankyou from "./Thankyou";
+import { useState } from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [rating, setRating] = useState(0);
+
+  function rate(value) {
+    setRating(value);
+  }
+
+  console.log(rating);
 
   return (
-      <h1>hi</h1>
-    )
-
+    <div className="App">
+      {isSubmitted === false ? (
+        <Card submit={() => setIsSubmitted(true)} rate={rate} />
+      ) : (
+        <Thankyou rating={rating} />
+      )}
+    </div>
+  );
 }
-
-export default App
